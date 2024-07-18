@@ -1,0 +1,22 @@
+.group-card {
+  background-color: var(--main-text-color);
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+.group-card h1 {
+  font-size: xx-large;
+  font-weight: 600;
+  color: var(--main-bg);
+}
+.group-card > p {
+  color: var(--decline-button);
+}
+.group-card > p:hover {
+  text-decoration: underline;
+}
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}

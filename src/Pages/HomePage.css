@@ -1,0 +1,20 @@
+.home-page{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 2em;
+}
+.home-page h1{
+    color: var(--main-text-color);
+}
+.home-page-heading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.groups{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 10px;
+}
+
