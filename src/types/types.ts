@@ -22,3 +22,14 @@ export interface ModalType{
     value:string,
     handleChange: (ev: ChangeEvent<HTMLInputElement>, index?:number)=>void
 }
+export interface ItemType {
+    id:number;
+  itemName: string;
+  itemPrice: number;
+  fractions: number[];
+}
+export interface ItemPropsType extends ItemType{
+    onAdd: ()=>void;
+    onDelete: (item: ItemType) => void;
+    onEdit:(item: ItemType, itemName:string, itemPrice:number)=>void;
+}

@@ -1,0 +1,12 @@
+.expenses{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 100px;
+}
+.expenses-heading{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    color: var(--main-text-color);
+}

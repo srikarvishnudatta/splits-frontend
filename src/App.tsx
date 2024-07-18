@@ -5,10 +5,12 @@ import HomePage from "./Pages/HomePage";
 import GroupContextProvider from "./context/GroupContext";
 import ExpensePage from "./Pages/ExpensePage";
 import ExpenseContextProvider from "./context/ExpenseContext";
+import AddTransactionPage from "./Pages/AddTransactionPage";
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/home", element: <HomePage /> },
   { path: "/:groupId/expenses", element: <ExpensePage /> },
+  {path : "/:groupId/expenses/new", element: <AddTransactionPage />}
 ]);
 function App() {
   return (

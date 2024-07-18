@@ -1,0 +1,14 @@
+.transaction-card{
+    width: 50%;
+    margin: 0 auto;
+    background-color: var(--main-text-color);
+    padding: 2em;
+}
+.transaction-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.group-expenses{
+   text-align: center;
+   color: wheat; 
+}

@@ -4,7 +4,6 @@ import { GroupType } from "../types/types";
 import "./Group.css";
 function Group(props: GroupType) {
   const navigate = useNavigate();
-  
   async function deleteGroupHandler(){
     await customFetch(`/groups/${props.groupId}`, "DELETE")
     window.location.reload();
