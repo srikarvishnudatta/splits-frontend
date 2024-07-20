@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
 import './Modal.css'
-import { useGroup } from "../context/GroupContext";
 import { ModalType } from "../types/types";
+import {useUser} from "../context/UserGroupContext.tsx";
 
 function Modal(props: ModalType) {
-  const {isModalOpen, closeModal}= useGroup()
+  const {isModalOpen, closeModal}= useUser()
   const dialogRef = useRef<HTMLDialogElement>(null);
   useEffect(()=>{
     if(isModalOpen) dialogRef.current?.showModal();

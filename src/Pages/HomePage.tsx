@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
-import { useUser } from '../context/UserContext'
+import { useUser } from '../context/UserGroupContext.tsx'
 import { customFetch } from '../api/customFetch';
 import './HomePage.css'
 import { GroupType } from '../types/types';
 import Group from '../components/Group';
 import Button from '../components/Button';
 import GroupModal from '../components/GroupModal';
-import { useGroup } from '../context/GroupContext';
 
 function HomePage() {
-    const {id} = useUser();
+    const {userId, handleModal} = useUser();
     const [groups, setGroups] = useState<GroupType[]>([]);
-    const { handleModal} = useGroup()
     useEffect(()=>{
         async function fetchData(){
-            const response = await customFetch(`/${id}`, "GET")
+            const response = await customFetch(`/${userId}`, "GET")
             if(!response.ok) throw new Error('cannot fetch items');
             const resData = await response.json();
             setGroups(resData)
         }
         fetchData()
-    },[]);      
+    },[userId]);
   return (
     <>
     <div className='home-page'>
@@ -39,5 +37,4 @@ function HomePage() {
     </>
   )
 }
-
 export default HomePage

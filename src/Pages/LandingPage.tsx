@@ -14,7 +14,6 @@ function LandingPage() {
         const resData = await response.json()
         localStorage.setItem('userId', resData.id);
         console.log(response);
-        
         navigate('/home')
     }
   return (

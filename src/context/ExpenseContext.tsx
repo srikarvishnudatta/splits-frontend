@@ -1,32 +1,22 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-
-export interface ExpenseContextType{
-    expenseId:string;
-    expensesMap:{};
-    setExpense:(expense: ExpenseContextType)=>void;
-    length:()=>number;
-}
+import {ExpenseContextType, ExpenseType} from "../types/types";
 
 const ExpenseContext = createContext<ExpenseContextType>({
-    expenseId:'',
-    expensesMap:{},
+    expenseData:{
+        transactions: [],
+        expenseMap:{}
+    },
     setExpense: () => {},
-    length: () => 0
 });
 
 export default function ExpenseContextProvider({children} : {children:ReactNode}){
-    const [expenses, setExpenses] = useState({
-        expenseId:'',
-        expensesMap:{}
-    });
+    const initialState: ExpenseType = {transactions: [], expenseMap: {}};
+    const [expenseData, setExpenseData] = useState(initialState);
     
-    function setExpense(expense: ExpenseContextType){
-        setExpenses(expense)
+    function setExpense(expense: ExpenseType){
+        setExpenseData(expense)
     }
-    function returnExpenseLength():number{
-        return Object.keys(expenses.expensesMap).length;
-    }
-    const ctx = {...expenses, setExpense, length: returnExpenseLength}
+    const ctx = {expenseData, setExpense}
     return <ExpenseContext.Provider value={ctx}>
         {children}
     </ExpenseContext.Provider>

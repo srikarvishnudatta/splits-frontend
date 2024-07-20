@@ -1,11 +1,11 @@
 import { ChangeEvent, useState } from "react";
-import { useGroup } from "../context/GroupContext";
 import Button from "./Button";
 import Input from "./Input";
 import Modal from "./Modal";
 import { customFetch } from "../api/customFetch";
+import {useUser} from "../context/UserGroupContext.tsx";
 function GroupModal() {
-  const { groupMembers, addMembers,closeModal, removeMember, editMembers } = useGroup();
+  const { groupMembers, addMembers,closeModal, removeMember, editMembers } = useUser();
 
   const [groupName, setGroupName] = useState('Group Name')
     function handleChange(index:number,ev: ChangeEvent<HTMLInputElement>){

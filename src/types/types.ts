@@ -22,14 +22,23 @@ export interface ModalType{
     value:string,
     handleChange: (ev: ChangeEvent<HTMLInputElement>, index?:number)=>void
 }
-export interface ItemType {
-    id:number;
-  itemName: string;
-  itemPrice: number;
-  fractions: number[];
+export interface ExpenseContextType{
+    expenseData: ExpenseType;
+    setExpense:(expense: ExpenseType)=>void;
 }
-export interface ItemPropsType extends ItemType{
-    onAdd: ()=>void;
-    onDelete: (item: ItemType) => void;
-    onEdit:(item: ItemType, itemName:string, itemPrice:number)=>void;
+export interface ExpenseType{
+    transactions:[];
+    expenseMap:object;
+}
+export interface UserContextType{
+    userId:string | null;
+    groupId:string | null;
+    isModalOpen:boolean;
+    handleModal:()=>void;
+    closeModal:() =>void;
+    groupMembers: string[];
+    addMembers: (name:string)=>void;
+    editMembers: (index:number, name:string)=>void;
+    removeMember: (index:number) => void;
+    handleGroupId: (varGroupId: string) => void;
 }
